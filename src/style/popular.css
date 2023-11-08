@@ -1,0 +1,167 @@
+@media screen {
+  .popular-section {
+    gap: 30px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .popular-hp {
+    padding: 40px 10px;
+  }
+
+  .popular-component {
+    gap: 20px;
+    width: 100%;
+    display: flex;
+    overflow: hidden;
+    overflow-x: auto;
+    overflow-y: hidden;
+    align-items: center;
+    padding-bottom: 40px;
+    justify-content: center;
+  }
+
+  .popular-card {
+    width: 200px;
+    display: flex;
+    height: 200px;
+    padding: 10px;
+    cursor: pointer;
+    min-width: 200px;
+    border-radius: 12px;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: var(--background-light);
+    
+  }
+
+  .popular-card:hover {
+    box-shadow: var(--bar-shadow);
+  }
+
+  .popular-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .p-header-inner {
+    gap: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .p-header-inner span {
+    font-size: 0.6rem;
+    font-weight: 400;
+    text-transform: capitalize;
+  }
+
+  .popular-img {
+    width: 30px;
+    height: 30px;
+    padding: 4px;
+    object-fit: cover;
+    border-radius: 8px;
+    object-position: center;
+    box-shadow: var(--bar-shadow);
+    background-color: var(--background-light);
+  }
+
+  .popular-category {
+    gap: 5px;
+    display: flex;
+    min-width: 50px;
+    padding: 4px 6px;
+    font-size: 0.6rem;
+    font-weight: 300;
+    align-items: center;
+    border-radius: 12px;
+    text-transform: lowercase;
+    color: var(--secondary-color);
+    justify-content: space-evenly;
+    background-color: var(--background-color);
+  }
+
+  .popular-category span {
+    text-transform: capitalize;
+  }
+
+  .circle-popular {
+    width: 8px;
+    height: 8px;
+    border-radius: 360%;
+    background-color: var(--primary-color);
+  }
+
+  .popular-info-inner {
+    gap: 10px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .popular-card h1 {
+    width: 50%;
+  }
+
+  .popular-section h1 {
+    font-weight: 500;
+    font-size: 1.2rem;
+  }
+
+  .popular-info-inner h1 {
+    font-weight: 300;
+    font-size: 1.2rem;
+    color: var(--secondary-light);
+  }
+
+  .popular-section p {
+    font-size: 0.6rem;
+  }
+
+  .category-header p {
+    font-size: 0.8rem;
+  }
+
+  .popular-footer {
+    gap: 4px;
+    display: flex;
+    font-size: 0.5rem;
+    align-items: center;
+    justify-content: end;
+    text-transform: capitalize;
+  }
+}
+
+/* using it as global style for larger devices  */
+@media only screen and (min-width: 48em) {
+  .popular-section {
+    gap: 40px;
+    padding: 50px;
+  }
+
+  .popular-section h1 {
+    font-size: 1.4rem;
+  }
+
+  .popular-component {
+    gap: 20px;
+    padding: 20px;
+    flex-wrap: wrap;
+  }
+}
+
+/* ipad pro screens & laptop */
+@media only screen and (min-width: 49em) and (max-width: 64em) {
+}
+
+/* large screens : Desktop and 4k screens */
+
+@media only screen and (min-width: 64.063em) and (max-width: 90em) {
+}
+
+/* 5k screens and above */
+@media only screen and (min-width: 91em) {
+}

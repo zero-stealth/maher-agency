@@ -1,0 +1,112 @@
+@import './stylesheet.css';
+
+@media screen {
+* {
+
+  /* colors */
+  --background-light:#ffffff;
+  --background-color: #edf6f1;
+  --secondary-color: #040427;
+  --secondary-light: #939394;
+  --tertiary-color: #f5343b;
+  --primary-color: #006a73;
+  --tertiary-brown-color: #f2c89d;
+  --bar-shadow: rgba(2, 2, 3, 0.2) 0px 7px 29px 0px;
+  --nav-shadow: 0 8px 32px 0 rgba(147, 154, 247, 0.37);
+
+
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+
+}
+
+  body {
+    font-weight: 200;
+    font-family: 'Poppins';
+    color: var(--secondary-color);
+    transition: all 0.3s ease-in-out;
+    -webkit-transition: all 0.3s ease-in-out;
+    background-color: var(--background-color);  
+
+  }
+
+  a,
+  router-link {
+    text-decoration: none;
+  }
+
+  input {
+    outline: none;
+    border: none;
+  }
+
+  .icon {
+    width: 18px;
+    height: 18px;
+    fill: var( --secondary-light);
+  }
+
+  p {
+  text-align: justify;
+  }
+
+
+  button {
+    outline: none;
+    border: none;
+  }
+
+  input:focus,
+  input:hover {
+    outline: none;
+    border: none;
+
+  }
+
+  .error {
+    width: 100%;
+    display: flex;
+    height: inherit;
+    align-items: center;
+    border-radius: inherit;
+    justify-content: center;
+  }
+
+}
+
+/* Works on Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--secondary-color) var(--primary-color);
+}
+
+*::-webkit-scrollbar-track {
+  background: var(--secondary-color);
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: var(--secondary-color);
+  border: 4px solid var(--primary-color);
+}
+
+/* using it as global style for larger devices  */
+@media only screen and (min-width: 48em) {
+  /* Works on Chrome, Edge, and Safari */
+    *::-webkit-scrollbar {
+      width: 6px;
+    }
+
+}
+  /* ipad pro screens & laptop */
+  @media only screen and (min-width: 49em) and (max-width: 64em) {
+  }
+  
+  /* large screens : Desktop and 4k screens */
+  
+  @media only screen and (min-width: 64.063em) and (max-width: 90em) {
+  }
+  
+  /* 5k screens and above */
+  @media only screen and (min-width: 91em) {
+  }

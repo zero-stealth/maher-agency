@@ -1,0 +1,143 @@
+@media screen {
+  .auth-container {
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    position: fixed;
+    text-align: center;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    color: var(--background-color);
+    background-color: var(--primary-color);
+  }
+
+  @keyframes gradient {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+
+
+  .form-l-wrapper {
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 10px );
+    -webkit-backdrop-filter: blur( 10px );
+    border-radius: 10px;
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
+    flex-direction: column;
+    border-radius: 8px;
+    padding: 20px;
+    display: flex;
+    width: 90%;
+    gap: 5px;
+  }
+
+  .form-l-wrapper h1 {
+    padding: 10px;
+    font-size: 1rem;
+    text-transform: capitalize;
+  }
+
+  .reverse {
+    cursor: pointer;
+    font-size: .8rem;
+    font-weight: 200;
+    text-decoration: underline;
+  }
+
+  .click-a {
+    text-decoration: underline;
+  }
+
+  .form-l-wrapper p {
+    font-size: 0.8rem;
+    color: var(--tertiary-color);
+  }
+
+  .l-form {
+    gap: 10px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .l-form span {
+    cursor: pointer;
+    text-decoration: underline;
+  }
+
+  .input-l {
+    border-radius: 4px;
+    padding: 10px 20px;
+    background: transparent;
+    color: var(--background-color);
+    border: 2px solid rgba( 255, 255, 255, 0.18 );    
+  }
+
+  .input-l:hover {
+    border: 2px solid rgba( 255, 255, 255, 0.18 );    
+
+  }
+
+  .input-l::placeholder {
+    font-size: .6rem;
+    text-transform: capitalize;
+    color: var(--background-color);
+    
+  }
+
+  .btn-f {
+    cursor: pointer;
+    font-size: 0.7rem;
+    border-radius: 4px;
+    padding: 15px 20px;
+    text-transform: capitalize;
+    color: var(--background-color);
+    background: var(--secondary-color);
+  }
+
+  .btn-f:hover {
+    background: var(--tertiary-color);
+  }
+
+  .l-alternatives {
+    gap: 10px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .alt-btn {
+    gap: 10px;
+    display: flex;
+    font-size: 0.7rem;
+    font-weight: 300;
+    padding: 15px 20px;
+    border-radius: 4px;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
+    color: var(--secondary-color);
+    border: 1px solid var(--secondary-color);
+  }
+
+  .alt-btn:hover  {
+    color: var(--background-color);
+    background: var(--secondary-color);
+
+  }
+
+}
+/* using it as global style for larger devices  */
+@media only screen and (min-width: 48em) {
+    .form-l-wrapper {
+        width: 20%;
+      }
+}
