@@ -63,8 +63,7 @@
 <script setup>
 import { onMounted, ref, watchEffect } from 'vue'
 import { RouterLink, useRoute } from 'vue-router'
-import MenuIcon from '../icons/menuicon.vue'
-import logo from '../assets/logo.png'
+import logo from '@/assets/logo.png'
 
 const mobileNavActive = ref(false)
 const route = useRoute()
