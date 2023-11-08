@@ -37,12 +37,11 @@
 
 <script setup>
 import { ref } from 'vue'
-import image from '@/assets/dreamjob.jpg'
 
 const data = ref([
   {
     id: 1,
-    logo: image,
+    logo: 'https://seeklogo.com/images/G/google-2015-logo-65BBD07B01-seeklogo.com.png',
     category: 'Tech',
     company: 'Google',
     duration:'fulltime',
@@ -51,8 +50,8 @@ const data = ref([
     description: 'work as a software engineer at google'
   },
   {
-    id: 1,
-    logo: image,
+    id: 2,
+    logo: 'https://seeklogo.com/images/A/apple-logo-6384F6C4BA-seeklogo.com.png',
     category: 'Tech',
     company: 'Apple',
     duration:'parttime',
@@ -61,8 +60,8 @@ const data = ref([
     description: 'work as a software engineer at google'
   },
    {
-    id: 1,
-    logo: image,
+    id: 3,
+    logo: 'https://seeklogo.com/images/M/microsoft-logo-83ECA0A7A4-seeklogo.com.png',
     category: 'Tech',
     company: 'Microsoft',
     duration:'fulltime',
@@ -71,55 +70,15 @@ const data = ref([
     description: 'work as a software engineer at google'
   },
   {
-    id: 1,
-    logo: image,
+    id: 4,
+    logo: 'https://seeklogo.com/images/A/Aqua_Cleaning-logo-D785CF7108-seeklogo.com.png',
     category: 'cleaning',
     company: 'Elerion',
     duration:'fulltime',
     job: 'House keeper',
     location: 'japan',
     description: 'work as a House keeper at google'
-  },
-  {
-    id: 1,
-    logo: image,
-    category: 'cleaning',
-    company: 'Elerion',
-    duration:'fulltime',
-    job: 'House keeper',
-    location: 'japan',
-    description: 'work as a House keeper at google'
-  },
-    {
-    id: 1,
-    logo: image,
-    category: 'cleaning',
-    company: 'Elerion',
-    duration:'fulltime',
-    job: 'House keeper',
-    location: 'japan',
-    description: 'work as a House keeper at google'
-  },
-  {
-    id: 1,
-    logo: image,
-    category: 'cleaning',
-    company: 'Elerion',
-    duration:'fulltime',
-    job: 'House keeper',
-    location: 'japan',
-    description: 'work as a House keeper at google'
-  },
-  {
-    id: 1,
-    logo: image,
-    category: 'cleaning',
-    company: 'Elerion',
-    duration:'fulltime',
-    job: 'House keeper',
-    location: 'japan',
-    description: 'work as a House keeper at google'
-  },
+  }
   
 ])
 

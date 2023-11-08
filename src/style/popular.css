@@ -63,7 +63,7 @@
     width: 30px;
     height: 30px;
     padding: 4px;
-    object-fit: cover;
+    object-fit: contain;
     border-radius: 8px;
     object-position: center;
     box-shadow: var(--bar-shadow);
