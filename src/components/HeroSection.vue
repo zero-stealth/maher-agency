@@ -78,6 +78,7 @@
         </div>
       </div>
     </div>
+    <CompanySection />
     <PopUP title="Apply for this job">
       <div class="job-details" v-for="d in specificData" :key="d.id">
         <div class="job-heading">
@@ -96,7 +97,6 @@
         </button>
       </div>
     </PopUP>
-    <CompanySection />
   </div>
 </template>
 
