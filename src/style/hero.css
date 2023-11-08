@@ -121,6 +121,23 @@
     background-color: var(--primary-color);
   }
 
+  .pop-btn {
+    padding: 14px;
+    display: flex;
+    cursor: pointer;
+    font-size: 0.9rem;
+    border-radius: 12px;
+    align-items: center;
+    justify-content: center;
+    color: var(--background-light);
+    background-color: var(--secondary-color);
+  }
+
+  
+  .pop-btn:hover {
+    background-color: var(--tertiary-color);
+  }
+
   .h-btn:hover {
     background-color: var(--tertiary-color);
   }
@@ -318,6 +335,41 @@
   .hero-img {
     height: 200px;
   }
+
+  .job-details {
+    gap: 10px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .job-details-inner {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .job-heading {
+    display: flex;
+    align-items: start;
+    justify-content: space-between;
+  }
+
+  .job-heading span {
+    font-size: 0.8rem;
+  }
+
+  .job-heading-inner {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .job-heading-inner h1 {
+    font-size: 1rem;
+    font-weight: 400;
+  }
 }
 
 /* using it as global style for larger devices  */
@@ -374,7 +426,7 @@
   }
 
   .h-btn {
-    padding: 20px 40px;
+    padding: 20px;
   }
 
   .h-btn span {

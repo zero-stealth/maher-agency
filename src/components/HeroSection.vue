@@ -81,6 +81,7 @@
     <CompanySection />
     <PopUP title="Apply for this job">
       <div class="job-details" v-for="d in specificData" :key="d.id">
+       <div class="job-details-inner">
         <div class="job-heading">
           <div class="job-heading-inner">
             <h1>{{ d.job }}</h1>
@@ -91,7 +92,8 @@
         <div class="description">
           <p>{{ d.description }}</p>
         </div>
-        <button class="h-btn" :disabled="loading" @click="applyJob()">
+       </div>
+        <button class="pop-btn" :disabled="loading" @click="applyJob">
           <div class="h-btn-inner" v-if="!loading">Apply</div>
           <Loading v-else />
         </button>
@@ -118,9 +120,7 @@ import Loading from '@/components/LoadingState.vue'
 import PopUP from '@/components/popupComponent.vue'
 import CompanySection from '@/components/CompanySection.vue'
 
-
-
-const popStore = usePopUpStore()
+const popUpStore = usePopUpStore()
 const router = useRouter()
 
 const location = ref('')
@@ -134,47 +134,27 @@ const data = ref([
     description: 'work as a software engineer at google'
   },
   {
-    id: 1,
+    id: 2,
     job: 'Software Engineer',
     location: 'San Francisco',
     company: 'Google',
     description: 'work as a software engineer at google'
   },
   {
-    id: 1,
+    id: 3,
     job: 'Software Engineer',
     location: 'San Francisco',
     company: 'Google',
     description: 'work as a software engineer at google'
   },
   {
-    id: 1,
+    id: 4,
     job: 'Software Engineer',
     location: 'San Francisco',
     company: 'Google',
     description: 'work as a software engineer at google'
-  },
-  {
-    id: 1,
-    job: 'Software Engineer',
-    location: 'San Francisco',
-    company: 'Google',
-    description: 'work as a software engineer at google'
-  },
-  {
-    id: 1,
-    job: 'Software Engineer',
-    location: 'San Francisco',
-    company: 'Google',
-    description: 'work as a software engineer at google'
-  },
-  {
-    id: 1,
-    job: 'Software Engineer',
-    location: 'San Francisco',
-    company: 'Google',
-    description: 'work as a software engineer at google'
-  },
+  }
+  
 ])
 
 const filteredData = ref([])
@@ -195,14 +175,20 @@ const toggleResultBar = () => {
 
 const showSpecificJob = (id) => {
   specificData.value = data.value.filter((d) => {
-    return d.id.includes(id)
+    return d.id === id
   })
+
 }
 
+const applyJob = () => {
+  popUpStore.togglePop()
+}
+
+
 const showinfo = (id) => {
-  popStore.togglePop(id)
+  popUpStore.togglePop(id)
   toggleResultBar()
-  showSpecificJob()
+  showSpecificJob(id)
 }
 
 const searchJobs = () => {

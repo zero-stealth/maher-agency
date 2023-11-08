@@ -54,6 +54,13 @@
     text-transform: uppercase;
     color: var(--background-light);
   }
+
+  
+  .pop-sec-d {
+    height: 100%;
+    overflow: hidden;
+    overflow-y: auto;
+  }
 }
 
 /* using it as global style for larger devices  */
@@ -66,9 +73,5 @@
     border-radius: 18px;
   }
 
-  .pop-sec-d {
-    height: 100%;
-    overflow: hidden;
-    overflow-y: auto;
-  }
+
 }
