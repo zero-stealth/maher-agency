@@ -96,6 +96,7 @@
         </button>
       </div>
     </PopUP>
+    <CompanySection />
   </div>
 </template>
 
@@ -115,6 +116,8 @@ import { usePopUpStore } from '@/stores/drawer'
 import LocationIcon from '@/icons/LocationIcon.vue'
 import Loading from '@/components/LoadingState.vue'
 import PopUP from '@/components/popupComponent.vue'
+import CompanySection from '@/components/CompanySection.vue'
+
 
 
 const popStore = usePopUpStore()

@@ -1,6 +1,5 @@
 <script setup>
 import HeroSection from '@/components/HeroSection.vue'
-import CompanySection from '@/components/CompanySection.vue'
 import CategorySection from '@/components/CategorySection.vue'
 import PopularSection from '@/components/PopularSection.vue'
 import AboutSection from '@/components/AboutSection.vue';
@@ -9,7 +8,6 @@ import FooterSection from '@/components/FooterSection.vue';
 <template>
   <div class="home-container">
     <HeroSection id="job"/>
-    <CompanySection />
     <CategorySection id="categories"/>
     <AboutSection id="about"/>
     <PopularSection/>

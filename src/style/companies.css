@@ -30,7 +30,7 @@
   }
 
   .league-c-img {
-    height: 30px;
+    height: 24px;
     width: 100%;
     object-fit: cover;
     object-position: center;
@@ -49,6 +49,10 @@
 
   .company-container {
     width: 90%;
+  }
+
+  .league-c-img {
+    height: 30px;
   }
 
 }
