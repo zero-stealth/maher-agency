@@ -42,7 +42,7 @@
 
   .hero-section-banner span {
     font-weight: 300;
-    font-size: 0.6rem;
+    font-size: 0.8rem;
     padding: 10px 14px;
     border-radius: 20px;
     color: var(--background-light);
@@ -50,7 +50,7 @@
   }
 
   .hero-section-banner h2 {
-    font-size: 0.6rem;
+    font-size: 0.8rem;
     font-weight: 300;
   }
 
@@ -62,7 +62,7 @@
 
   .h-info h1 {
     font-weight: 800;
-    font-size: 1.8rem;
+    font-size: 2rem;
   }
 
   .h-info span {
@@ -70,7 +70,7 @@
   }
 
   .h-info p {
-    font-size: 0.9rem;
+    font-size: 1rem;
   }
 
   .form-h {
@@ -103,7 +103,7 @@
   }
 
   .inputoh::placeholder {
-    font-size: 0.8rem;
+    font-size: 1rem;
     text-transform: capitalize;
     color: var(--secondary-light);
   }
@@ -184,7 +184,7 @@
   .search-result th,
   .search-result td {
     padding: 10px;
-    font-size: 0.5rem;
+    font-size: 0.7rem;
     border-bottom: none;
     border: 1px solid var(--background-color);
   }
@@ -228,13 +228,13 @@
   }
 
   .job-top h1 {
-    font-size: 1rem;
+    font-size: 1.2rem;
     color: var(--tertiary-color);
   }
 
   .job-top span {
     font-weight: 300;
-    font-size: 0.7rem;
+    font-size: 0.8rem;
   }
 
   .job-bottom {
@@ -250,7 +250,7 @@
   }
 
   .job-bottom h1 {
-    font-size: 0.8rem;
+    font-size: 1rem;
   }
 
   .job-img-contain {
@@ -262,8 +262,8 @@
   }
 
   .p-img {
-    height: 35px;
-    width: 35px;
+    height: 40px;
+    width: 40px;
     position: relative;
     object-fit: cover;
     border-radius: 360%;
@@ -400,11 +400,11 @@
   }
 
   .hero-section-banner span {
-    font-size: 0.6rem;
+    font-size: 0.7rem;
   }
 
   .hero-section-banner h2 {
-    font-size: 0.6rem;
+    font-size: 0.8rem;
   }
 
   .h-info {
@@ -414,16 +414,13 @@
   }
 
   .h-info h1 {
-    font-size: 2.2rem;
+    font-size: 2.5rem;
   }
 
   .h-info span {
     color: var(--primary-color);
   }
 
-  .h-info p {
-    font-size: 0.9rem;
-  }
 
   .h-btn {
     padding: 20px;
@@ -455,7 +452,7 @@
 
   .search-result th,
   .search-result td {
-    font-size: 0.7rem;
+    font-size: 0.8rem;
   }
 
   .job-top {
@@ -464,7 +461,7 @@
   }
 
   .job-top h1 {
-    font-size: 1.2rem;
+    font-size: 1.3rem;
   }
 
   .job-top span {
@@ -477,7 +474,7 @@
   }
 
   .job-bottom h1 {
-    font-size: 1rem;
+    font-size: 1.2rem;
   }
 
   .p-img {

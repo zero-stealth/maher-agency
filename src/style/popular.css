@@ -23,10 +23,10 @@
   }
 
   .popular-card {
-    width: 200px;
+    width: 250px;
     display: flex;
-    height: 200px;
-    padding: 10px;
+    height: 300px;
+    padding: 20px;
     cursor: pointer;
     min-width: 200px;
     border-radius: 12px;
@@ -54,8 +54,8 @@
   }
 
   .p-header-inner span {
-    font-size: 0.6rem;
     font-weight: 400;
+    font-size: 0.8rem;
     text-transform: capitalize;
   }
 
@@ -73,7 +73,7 @@
   .popular-category {
     gap: 5px;
     display: flex;
-    min-width: 50px;
+    min-width: 60px;
     padding: 4px 6px;
     font-size: 0.6rem;
     font-weight: 300;
@@ -90,8 +90,8 @@
   }
 
   .circle-popular {
-    width: 8px;
-    height: 8px;
+    width: 10px;
+    height: 10px;
     border-radius: 360%;
     background-color: var(--primary-color);
   }
@@ -108,27 +108,27 @@
 
   .popular-section h1 {
     font-weight: 500;
-    font-size: 1.2rem;
+    font-size: 1.5rem;
   }
 
   .popular-info-inner h1 {
     font-weight: 300;
-    font-size: 1.2rem;
+    font-size: 1.5rem;
     color: var(--secondary-light);
   }
 
   .popular-section p {
-    font-size: 0.6rem;
+    font-size: 0.8rem;
   }
 
   .category-header p {
-    font-size: 0.8rem;
+    font-size: 1rem;
   }
 
   .popular-footer {
     gap: 4px;
     display: flex;
-    font-size: 0.5rem;
+    font-size: 0.6rem;
     align-items: center;
     justify-content: end;
     text-transform: capitalize;
@@ -143,7 +143,7 @@
   }
 
   .popular-section h1 {
-    font-size: 1.4rem;
+    font-size: 1.5rem;
   }
 
   .popular-component {

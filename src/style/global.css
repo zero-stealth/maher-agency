@@ -38,7 +38,12 @@
 
   input {
     outline: none;
-    border: none;
+  }
+  
+  input:focus,
+  input:hover {
+    outline: none;
+
   }
 
   .icon {
@@ -57,12 +62,7 @@
     border: none;
   }
 
-  input:focus,
-  input:hover {
-    outline: none;
-    border: none;
 
-  }
 
   .error {
     width: 100%;

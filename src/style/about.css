@@ -38,13 +38,13 @@
   }
 
   .abt-h span {
-    font-size: 0.8rem;
+    font-size: 1rem;
     font-weight: 300;
     color: var(--primary-color);
   }
 
   .abt-h h1 {
-    font-size: 1.2rem;
+    font-size: 1.4rem;
     font-weight: 600;
   }
 
@@ -55,11 +55,11 @@
   }
 
   .abt-info p {
-    font-size: 0.8rem;
+    font-size: 0.9rem;
   }
 
   .abt-info li {
-    font-size: 0.8rem;
+    font-size: 0.9rem;
   }
 
   .abt-info li {
@@ -74,17 +74,18 @@
   }
 
   .abt-steps {
+    gap: 6px;
     display: flex;
     text-align: center;
     flex-direction: column;
   }
 
   .abt-steps span {
-    font-size: 0.9rem;
+    font-size: 1rem;
   }
 
   .abt-steps h1 {
-    font-size: 1rem;
+    font-size: 1.2rem;
     font-weight: 600;
   }
 
