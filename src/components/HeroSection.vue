@@ -188,12 +188,15 @@ const applyJob = () => {
 *Hi, I would like to apply for the following job:*
 
 *Job Title:* ${title.value}
+
 *Company:* ${specificData.value[0].company}
+*Category:* ${specificData.value[0].category}
+
 *Location:* ${specificData.value[0].location}
 
 *My email is* ${localStorage.getItem('email')}
 
-*Thank you!*`,
+*Thank you! *`,
       '_blank'
     );
     popUpStore.togglePop();

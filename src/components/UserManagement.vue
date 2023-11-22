@@ -61,6 +61,7 @@ const getAccountsData = async () => {
         Authorization: `Bearer ${user}`
       }
     })
+
     accountData.value = response.data
   } catch (err) {
     console.error(err)
