@@ -24,7 +24,7 @@
             <LocationIcon class="icon icon-h" />
             <input type="text" v-model="location" placeholder="Location" class="inputoh" />
           </div>
-          <button type="submit" class="h-btn" :disabled="loading" @click="showResult">
+          <button type="submit" class="h-btn" @click="showResult">
             <div class="h-btn-inner" v-if="!loading">
               <SearchIcon class="icon icon-sbtn" /> <span>Search</span>
             </div>
@@ -41,9 +41,9 @@
                   <th>Company</th>
                 </tr>
               </thead>
-              <tbody>
-                <tr v-for="d in filteredData" :key="d.id" @click="showinfo(d.id)">
-                  <td>{{ d.job }}</td>
+              <tbody v-for="item in jobData" :key="item._id">
+                <tr v-for="d in item" :key="d._id" @click="showinfo(d._id)">
+                  <td>{{ d.title }}</td>
                   <td>{{ d.location }}</td>
                   <td>{{ d.company }}</td>
                 </tr>
@@ -79,23 +79,32 @@
       </div>
     </div>
     <CompanySection />
-    <PopUP title="Apply for this job">
+    <PopUP :title="title">
       <div class="job-details" v-for="d in specificData" :key="d.id">
-       <div class="job-details-inner">
-        <div class="job-heading">
-          <div class="job-heading-inner">
-            <h1>{{ d.job }}</h1>
-            <span>{{ d.company }}</span>
+        <div class="job-details-inner">
+          <div class="job-heading">
+            <div class="job-heading-inner">
+              <div>
+                <h1>Company</h1>
+                <span>{{ d.company }}</span>
+              </div>
+            </div>
+            <div>
+              <h1>Location</h1>
+              <span> {{ d.location }}</span>
+            </div>
+            <div>
+              <h1>Category</h1>
+              <span> {{ d.category }}</span>
+            </div>
           </div>
-          <span>{{ d.location }}</span>
+          <div class="description">
+            <h1>Description</h1>
+            <p>{{ d.description }}</p>
+          </div>
         </div>
-        <div class="description">
-          <p>{{ d.description }}</p>
-        </div>
-       </div>
-        <button class="pop-btn" :disabled="loading" @click="applyJob">
-          <div class="h-btn-inner" v-if="!loading">Apply</div>
-          <Loading v-else />
+        <button class="pop-btn" @click="applyJob">
+          <div class="h-btn-inner">Apply for this job</div>
         </button>
       </div>
     </PopUP>
@@ -103,7 +112,7 @@
 </template>
 
 <script setup>
-import { ref, watchEffect } from 'vue'
+import axios from 'axios'
 import { useRouter } from 'vue-router'
 import working from '@/assets/working.gif'
 import nothing from '@/assets/nothing.gif'
@@ -113,6 +122,7 @@ import profile2 from '@/assets/profile2.jpeg'
 import profile3 from '@/assets/profile3.jpeg'
 import profile4 from '@/assets/profile4.jpeg'
 import NavBar from '@/components/NavBar.vue'
+import { ref, watchEffect, onMounted } from 'vue'
 import SearchIcon from '@/icons/SearchIcon.vue'
 import { usePopUpStore } from '@/stores/drawer'
 import LocationIcon from '@/icons/LocationIcon.vue'
@@ -120,98 +130,103 @@ import Loading from '@/components/LoadingState.vue'
 import PopUP from '@/components/popupComponent.vue'
 import CompanySection from '@/components/CompanySection.vue'
 
+const SERVER_HOST = import.meta.env.VITE_SERVER_HOST
 const popUpStore = usePopUpStore()
 const router = useRouter()
 
 const location = ref('')
 const search = ref('')
-const data = ref([
-  {
-    id: 1,
-    job: 'Software Engineer',
-    location: 'San Francisco',
-    company: 'Google',
-    description: 'work as a software engineer at google'
-  },
-  {
-    id: 2,
-    job: 'Software Engineer',
-    location: 'San Francisco',
-    company: 'Google',
-    description: 'work as a software engineer at google'
-  },
-  {
-    id: 3,
-    job: 'Software Engineer',
-    location: 'San Francisco',
-    company: 'Google',
-    description: 'work as a software engineer at google'
-  },
-  {
-    id: 4,
-    job: 'Software Engineer',
-    location: 'San Francisco',
-    company: 'Google',
-    description: 'work as a software engineer at google'
-  }
-  
-])
+const title = ref('')
+const jobData = ref([])
 
+const getJob = async () => {
+  try {
+    const response = await axios.get(`${SERVER_HOST}/data/jobs/`)
+    jobData.value = response.data.length > 0 ? [response.data] : []
+  } catch (err) {
+    console.log(err)
+  }
+}
 const filteredData = ref([])
 const specificData = ref([])
 const loading = ref(false)
 const resultBar = ref(false)
+const phoneNumber = ref('254720266644')
 
 const showResult = () => {
-  resultBar.value = true
+  if (location.value === '' && search.value === '') {
+    filteredData.value = jobData.value
+    toggleResultBar()
+  } else {
+    resultBar.value = true
+  }
 }
 
 const Login = async () => {
-  router.push({ name: 'login' })
+  router.push({ name: 'Login' })
 }
 const toggleResultBar = () => {
   resultBar.value = !resultBar.value
 }
 
-const showSpecificJob = (id) => {
-  specificData.value = data.value.filter((d) => {
-    return d.id === id
-  })
-
+const showSpecificJob = async () => {
+  try {
+    const response = await axios.get(`${SERVER_HOST}/data/jobs/${popUpStore.jobID}`)
+    specificData.value = response.data ? [response.data] : []
+  } catch (err) {
+    console.error(err)
+  }
+  title.value = specificData.value[0].title
 }
-
 const applyJob = () => {
-  popUpStore.togglePop()
-}
+  if (localStorage.getItem('email') === null) {
+    router.push({ name: 'Login' });
+    popUpStore.togglePop();
+  } else {
+    window.open(
+      `https://wa.me/${phoneNumber.value}?text=
+*Hi, I would like to apply for the following job:*
 
+*Job Title:* ${title.value}
+*Company:* ${specificData.value[0].company}
+*Location:* ${specificData.value[0].location}
+
+*My email is* ${localStorage.getItem('email')}
+
+*Thank you!*`,
+      '_blank'
+    );
+    popUpStore.togglePop();
+  }
+};
 
 const showinfo = (id) => {
   popUpStore.togglePop(id)
   toggleResultBar()
-  showSpecificJob(id)
+  showSpecificJob()
 }
-
 const searchJobs = () => {
   const searchTerm = search.value.toLowerCase().trim()
   const locationTerm = location.value.toLowerCase().trim()
 
-  loading.value = true
+  if (jobData.value && jobData.value.length > 0) {
+    filteredData.value = jobData.value.filter((d) => {
+      const jobTitle = d.job ? d.job.toLowerCase() : ''
+      const jobLocation = d.location ? d.location.toLowerCase() : ''
 
-  if (searchTerm || locationTerm) {
-    filteredData.value = data.value.filter((d) => {
-      return (
-        d.job.toLowerCase().includes(searchTerm) || d.location.toLowerCase().includes(locationTerm)
-      )
+      return jobTitle.includes(searchTerm) || jobLocation.includes(locationTerm)
     })
   } else {
-    filteredData.value = data.value
+    filteredData.value = []
   }
-
-  loading.value = false
 }
 
 watchEffect(() => {
   searchJobs()
+})
+
+onMounted(() => {
+  getJob()
 })
 </script>
 

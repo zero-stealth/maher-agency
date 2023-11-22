@@ -21,7 +21,7 @@
 
   .ads-banner h1 {
     font-weight: 300;
-    font-size: 0.9rem;
+    font-size: 1rem;
     color: var(--background-light);
   }
 
@@ -29,10 +29,10 @@
     width: 100px;
     padding: 10px;
     cursor: pointer;
-    font-size: 0.7rem;
+    font-size: 0.8rem;
     border-radius: 4px;
     height: fit-content;
-    color: var(--secondary-color);
+    color: var( --tertiary-color);
     background-color: var(--background-light);
   }
 
@@ -225,6 +225,8 @@
 
   .btn-banner {
     width: 140px;
+    padding: 14px;
+
   }
 
   .foot-part {
@@ -232,7 +234,6 @@
 
   }
 
-  
   .foot-link {
     font-size: 1.2rem;
 

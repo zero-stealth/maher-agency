@@ -11,9 +11,12 @@
         <a href="#about" class="nav-link" :class="activeClass('#about')">About us</a>
         <a href="#contact" class="nav-link" :class="activeClass('#contact')">Contact</a>
       </div>
-      <div class="nav-end">
-        <RouterLink to="/signup" class="nav-link">Signup</RouterLink>
+      <div class="nav-end" v-if="authStore.token === null">
+        <RouterLink to="/signup" class="nav-link">Sign up</RouterLink>
         <RouterLink to="/login" class="nav-link btn-apply">Apply now</RouterLink>
+      </div>
+      <div class="nav-end" v-else>
+        <button class="btn-apply" @click="Logout">logout</button>
       </div>
       <div class="mobile-nav">
         <MenuIcon class="menu-icon" @click="toggleMenu" />
@@ -50,11 +53,14 @@
           >Contact</a
         >
       </div>
-      <div class="nav-end-menu">
+      <div class="nav-end-menu" v-if="authStore.token === null">
         <RouterLink to="/signup" class="nav-link menu-btn active-btn" @click="toggleMenu"
           >Signup</RouterLink
         >
         <RouterLink to="/login" class="nav-link menu-btn" @click="toggleMenu">Apply now</RouterLink>
+      </div>
+      <div class="nav-end-menu" v-else>
+        <button class="menu-btn" @click="Logout">logout</button>
       </div>
     </div>
   </div>
@@ -63,12 +69,14 @@
 <script setup>
 import { onMounted, ref, watchEffect } from 'vue'
 import { RouterLink, useRoute } from 'vue-router'
+import { useAuthStore } from '@/stores/auth'
 import MenuIcon from '@/icons/MenuIcon.vue'
 import logo from '@/assets/logo.png'
 
 const mobileNavActive = ref(false)
-const route = useRoute()
+const authStore = useAuthStore()
 const routeName = ref('Home')
+const route = useRoute()
 
 onMounted(() => {
   watchEffect(() => {
@@ -83,6 +91,10 @@ const activeClass = (link) => {
   }
 
   return style.value
+}
+
+const Logout = () => {
+  authStore.removeToken()
 }
 
 const activeMobileClass = (link) => {

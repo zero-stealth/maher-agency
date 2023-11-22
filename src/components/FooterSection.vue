@@ -12,7 +12,7 @@
         <div class="foot-part">
           <img :src="logo" alt="logo" class="footer-logo" />
           <p>
-            Ensuring you get the job 
+            Ensuring you <span @click="goAdmin()">get</span>  the job 
             that you deserve
           </p>
 
@@ -57,7 +57,7 @@
           </form>
           <div class="social-container">
             <div class="social-link-banner" @click="openWhatsapp">
-              <InstagramIcon class="social-link" />
+              <WhatsappIcon class="social-link" />
             </div>
             <div class="social-link-banner" @click="openFacebook">
               <FacebookIcon class="social-link" />
@@ -66,7 +66,7 @@
               <InstagramIcon class="social-link" />
             </div>
             <div class="social-link-banner" @click="openLinkedin">
-              <InstagramIcon class="social-link" />
+              <LinkedinIcon class="social-link" />
             </div>
             <div class="social-link-banner" @click="openTwitter">
               <TwitterIcon class="social-link" />
@@ -84,18 +84,22 @@
 
 <script setup>
 import logo from '@/assets/logo.png'
+import { useRouter } from 'vue-router'
 import PhoneIcon from '@/icons/PhoneIcon.vue'
+import EmailIcon from '@/icons/EmailIcon.vue'
 import { onMounted, ref, watchEffect } from 'vue'
 import { RouterLink, useRoute } from 'vue-router'
-import EmailIcon from '@/icons/EmailIcon.vue'
 import TwitterIcon from '@/icons/TwitterIcon.vue'
 import FacebookIcon from '@/icons/FacebookIcon.vue'
 import LocationIcon from '@/icons/LocationIcon.vue'
 import TelegramIcon from '@/icons/TelegramIcon.vue'
 import InstagramIcon from '@/icons/InstagramIcon.vue'
+import LinkedinIcon from '@/icons/LinkedinIcon.vue'
+import WhatsappIcon from '@/icons/WhatsappIcon.vue'
 
 const message = ref('')
 const route = useRoute()
+const router = useRouter()
 const errMessage = ref('')
 const routeName = ref('Home')
 const phoneNumber = ref('254720266644')
@@ -106,6 +110,10 @@ onMounted(() => {
     routeName.value = route.hash
   })
 })
+
+const goAdmin = () => {
+  router.push({ name: 'AdminLogin' })
+}
 
 const activeClass = (link) => {
   const style = ref(null)
@@ -118,7 +126,7 @@ const activeClass = (link) => {
 
 
 const openWhatsapp = () => {
-  window.open('https://wa.me/+254703147237?text=Hi welcome from', '_blank')
+  window.open(`https://wa.me/${phoneNumber.value}?text=Hi welcome to maher agency`, '_blank')
 }
 const openFacebook = () => {
   window.open('https://', '_blank')

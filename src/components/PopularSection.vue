@@ -11,8 +11,8 @@
         environment, providing roles in technology, healthcare, finance, and more.
       </p>
     </div>
-    <div class="popular-component">
-      <div class="popular-card" v-for="d in data" :key="d.id">
+    <div class="popular-component" v-for="item in data" :key="item._id">
+      <div class="popular-card" v-for="d in item" :key="d._id">
         <div class="popular-header">
           <div class="p-header-inner">
             <img :src="d.logo" :alt="d.job" class="popular-img" />
@@ -24,7 +24,7 @@
           </div>
         </div>
         <div class="popular-info-inner">
-          <h1>{{ d.job }}</h1>
+          <h1>{{ d.title }}</h1>
           <p>{{ d.description }}</p>
         </div>
         <div class="popular-footer">
@@ -36,52 +36,27 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import axios from 'axios'
+import { ref, onMounted } from 'vue'
 
-const data = ref([
-  {
-    id: 1,
-    logo: 'https://seeklogo.com/images/G/google-2015-logo-65BBD07B01-seeklogo.com.png',
-    category: 'Tech',
-    company: 'Google',
-    duration:'fulltime',
-    job: 'Software Engineer',
-    location: 'San Francisco',
-    description: 'work as a software engineer at google'
-  },
-  {
-    id: 2,
-    logo: 'https://seeklogo.com/images/A/apple-logo-6384F6C4BA-seeklogo.com.png',
-    category: 'Tech',
-    company: 'Apple',
-    duration:'parttime',
-    job: 'Product Manager',
-    location: 'Los Angeles',
-    description: 'work as a software engineer at google'
-  },
-   {
-    id: 3,
-    logo: 'https://seeklogo.com/images/M/microsoft-logo-83ECA0A7A4-seeklogo.com.png',
-    category: 'Tech',
-    company: 'Microsoft',
-    duration:'fulltime',
-    job: 'Data Analyst',
-    location: 'New York',
-    description: 'work as a software engineer at google'
-  },
-  {
-    id: 4,
-    logo: 'https://seeklogo.com/images/A/Aqua_Cleaning-logo-D785CF7108-seeklogo.com.png',
-    category: 'cleaning',
-    company: 'Elerion',
-    duration:'fulltime',
-    job: 'House keeper',
-    location: 'japan',
-    description: 'work as a House keeper at google'
+
+const SERVER_HOST = import.meta.env.VITE_SERVER_HOST
+
+const data = ref([])
+
+
+const getJob = async () => {
+  try {
+    const response = await axios.get(`${SERVER_HOST}/data/jobs/`)
+    data.value = response.data.length > 0 ? [response.data] : []
+  } catch (err) {
+    console.log(err)
   }
-  
-])
+}
 
+onMounted(() => {
+  getJob()
+})
 </script>
 <style>
 @import '@/style/popular.css';

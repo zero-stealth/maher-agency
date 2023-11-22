@@ -351,25 +351,41 @@
     justify-content: space-between;
   }
 
+  .job-details-inner h1 {
+    font-size: .8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    text-decoration: underline;
+  }
+
+  .job-details-inner span {
+    font-size: .8rem;
+    font-weight: 300;
+    text-transform: capitalize;
+  }
+
   .job-heading {
+    gap: 10px;
     display: flex;
+    flex-wrap: wrap;
     align-items: start;
     justify-content: space-between;
   }
 
-  .job-heading span {
-    font-size: 0.8rem;
-  }
 
   .job-heading-inner {
     display: flex;
     flex-direction: column;
   }
 
-  .job-heading-inner h1 {
-    font-size: 1rem;
-    font-weight: 400;
+  .description {
+    text-align: center;
   }
+
+  .description p {
+    text-align: center;
+  }
+
 }
 
 /* using it as global style for larger devices  */
